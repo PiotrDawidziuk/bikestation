@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class BikeStation {
+public class Station {
 
     @Id
     @GeneratedValue
@@ -13,11 +13,11 @@ public class BikeStation {
 
     private String name;
 
-    public BikeStation(String name) {
+    public Station(String name) {
         this.name = name;
     }
 
-    public BikeStation() {
+    public Station() {
     }
 
     public Long getId() {
