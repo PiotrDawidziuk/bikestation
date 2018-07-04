@@ -26,6 +26,14 @@ public class StationController {
         return stationRepository.findAll();
     }
 
+    @GetMapping (path = "/stationbikes")
+    public @ResponseBody List showBikesFromStation(@RequestParam long id) {
+        Station s = stationRepository.getOne(id);
+        List list = s.getBikes();
+
+        return list;
+    }
+
     @GetMapping(path="/add")
     public @ResponseBody String addNewStation (@RequestParam String name) {
 
