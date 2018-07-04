@@ -15,6 +15,9 @@ public class Station {
     @OneToMany (cascade = CascadeType.ALL)
     private List<Slot> slots;
 
+    @OneToMany (cascade = CascadeType.ALL)
+    private List<Bike> bikes;
+
     public Station(String name) {
         this.name = name;
     }
@@ -44,5 +47,13 @@ public class Station {
 
     public void setSlots(List<Slot> slots) {
         this.slots = slots;
+    }
+
+    public List<Bike> getBikes() {
+        return bikes;
+    }
+
+    public void setBikes(List<Bike> bikes) {
+        this.bikes = bikes;
     }
 }
