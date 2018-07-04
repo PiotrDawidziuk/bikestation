@@ -1,8 +1,7 @@
 package pl.piotrdawidziuk.bikestation.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Station {
@@ -12,6 +11,9 @@ public class Station {
     private Long id;
 
     private String name;
+
+    @OneToMany (cascade = CascadeType.ALL)
+    private List<Slot> slots;
 
     public Station(String name) {
         this.name = name;
@@ -34,5 +36,13 @@ public class Station {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Slot> getSlots() {
+        return slots;
+    }
+
+    public void setSlots(List<Slot> slots) {
+        this.slots = slots;
     }
 }

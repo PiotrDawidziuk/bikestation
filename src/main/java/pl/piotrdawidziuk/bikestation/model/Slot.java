@@ -3,6 +3,7 @@ package pl.piotrdawidziuk.bikestation.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Slot {
@@ -12,6 +13,9 @@ public class Slot {
     private Long id;
 
     private String name;
+
+    @ManyToOne
+    Station station;
 
 
     public Slot(String name) {
@@ -36,5 +40,13 @@ public class Slot {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Station getStation() {
+        return station;
+    }
+
+    public void setStation(Station station) {
+        this.station = station;
     }
 }

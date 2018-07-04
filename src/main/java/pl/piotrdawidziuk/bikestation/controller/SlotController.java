@@ -16,6 +16,8 @@ public class SlotController {
     @Autowired
     SlotRepository slotRepository;
 
+    @Autowired
+    StationRepository stationRepository;
 
     @GetMapping(path = "/slots")
     public @ResponseBody
@@ -24,11 +26,21 @@ public class SlotController {
     }
 
     @GetMapping(path="/addslot")
-    public @ResponseBody String addNewStation () {
+    public @ResponseBody String addNewSlot (@RequestParam long id){
 
-        Slot n = new Slot();
-        slotRepository.save(n);
-        return "Saved";
+        if (stationRepository.existsById(id)) {
+
+            Slot n = new Slot();
+
+            n.setStation(stationRepository.getOne(id));
+
+            slotRepository.save(n);
+
+            return "Saved";
+        }
+        else {
+            return "wrong id";
+        }
     }
 
 
