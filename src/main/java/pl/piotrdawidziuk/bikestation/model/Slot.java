@@ -13,11 +13,13 @@ public class Slot {
 
     private String name;
 
+
     public Slot(String name) {
         this.name = name;
     }
 
     public Slot() {
+        this.name = "slot";
     }
 
     public Long getId() {

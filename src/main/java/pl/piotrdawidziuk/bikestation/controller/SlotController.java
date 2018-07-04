@@ -5,28 +5,29 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import pl.piotrdawidziuk.bikestation.model.Slot;
 import pl.piotrdawidziuk.bikestation.model.Station;
+import pl.piotrdawidziuk.bikestation.repository.SlotRepository;
 import pl.piotrdawidziuk.bikestation.repository.StationRepository;
 
 @Controller
-public class StationController {
+public class SlotController {
 
     @Autowired
-    StationRepository stationRepository;
+    SlotRepository slotRepository;
 
 
-    @GetMapping(path = "/all")
+    @GetMapping(path = "/slots")
     public @ResponseBody
-    Iterable<Station> getAllStations() {
-        return stationRepository.findAll();
+    Iterable<Slot> getAllSlots() {
+        return slotRepository.findAll();
     }
 
-    @GetMapping(path="/add")
-    public @ResponseBody String addNewStation (@RequestParam String name) {
+    @GetMapping(path="/addslot")
+    public @ResponseBody String addNewStation () {
 
-        Station n = new Station();
-        n.setName(name);
-        stationRepository.save(n);
+        Slot n = new Slot();
+        slotRepository.save(n);
         return "Saved";
     }
 
