@@ -17,8 +17,6 @@ public class Slot {
     @OneToOne
     Bike bike;
 
-    private boolean occupied;
-
     public Slot(String name) {
         this.name = name;
     }
@@ -58,12 +56,5 @@ public class Slot {
     public void setBike(Bike bike) {
         this.bike = bike;
     }
-
-    public boolean isOccupied() {
-        return occupied;
-    }
-
-    public void setOccupied(boolean occupied) {
-        this.occupied = occupied;
-    }
+    
 }
