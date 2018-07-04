@@ -18,6 +18,7 @@ public class Station {
     @OneToMany (cascade = CascadeType.ALL)
     private List<Bike> bikes;
 
+
     public Station(String name) {
         this.name = name;
     }
@@ -55,5 +56,11 @@ public class Station {
 
     public void setBikes(List<Bike> bikes) {
         this.bikes = bikes;
+    }
+
+    @Override
+    public String toString (){
+        String s = "Name: "+this.getName()+" ID: "+this.getId()+ " Slots: "+this.getSlots().size();
+        return s;
     }
 }
