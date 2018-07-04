@@ -33,7 +33,7 @@ public class SlotController {
             Slot n = new Slot();
 
             n.setStation(stationRepository.getOne(id));
-
+            n.setOccupied(false);
             slotRepository.save(n);
 
             return "Saved";
@@ -43,6 +43,19 @@ public class SlotController {
         }
     }
 
+    @GetMapping(path="/isoccupied")
+    public @ResponseBody String isSlotOccupied (@RequestParam long id){
+
+        if (slotRepository.existsById(id)) {
+            if (slotRepository.getOne(id).isOccupied() == true) {
+                return "Slot Occupied";
+            }
+            return "Slot free";
+        }
+        else {
+            return "wrong id";
+        }
+    }
 
 
 
