@@ -23,7 +23,7 @@ public class Bike {
     public static int bikeCounter = 0;
 
     public static synchronized Bike getLimInstance(){
-        if(bikeCounter < 3 ){
+        if(bikeCounter < 100 ){
             limInstance = new Bike();
         }
         return limInstance;

@@ -36,7 +36,7 @@ public class StationController {
             for (Bike bike: station.getBikes()){
                 bikes++;
             }
-            
+
             StationSimple stationSimple = new StationSimple(station.getName(), freeSlots, occupiedSlots, bikes);
             stationsSimple.add(stationSimple);
         }
